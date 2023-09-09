@@ -1,9 +1,10 @@
 <?php
-    // -- Codice PHP --
+// -- Codice PHP --
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,24 @@
     <link rel="stylesheet" href="css/style.css">
     <title>PHP - Password Generator</title>
 </head>
+
 <body>
-    
+    <div class="container p-5">
+        <h1 class="p-3">Password Generator</h1>
+
+        <form class="row p-3" method="GET" action="index.php">
+            <label for="lunghezza">Lunghezza della Password:</label>
+ 
+            <div class="col-auto">
+                <label for="inputPassword2" class="visually-hidden">Password</label>
+                <input type="password" class="form-control" id="inputPassword2" placeholder="Password" min="1" required>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+            </div>
+        </form>
+
+    </div>
 </body>
+
 </html>
