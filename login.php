@@ -6,9 +6,12 @@ $username = isset($_GET["email"]) ? $_GET["email"] : "";
 $password = isset($_GET["password"]) ? $_GET["password"] : "";
 
 
-if ($password === "password") {
+if($password === "password") {
     $_SESSION["username"] = $username;
-}
+
+    header('Location: ./dashboard.php');
+    die;
+} 
 ?>
 
 <!DOCTYPE html>
@@ -32,31 +35,24 @@ if ($password === "password") {
 </head>
 
 <body>
-    <div class="container p-5">
-        <h1 class="p-3">Password Generator</h1>
 
-        <?php
-        echo $_SESSION["username"] ?? "utente non loggato"
-        ?>
+<div class="container p-5">
 
-        <form class="row p-3" method="GET" action="index.php">
+  <form action="login.php" class="card" method="GET">
+    <div class="card-body">
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="text" class="form-control" name="email">
+      </div>
+      <div class="mb-3">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password">
+      </div>
 
-            <div class="col-auto">
-                <div class="mb-3">
-                    <label>Email</label>
-                    <input type="text" class="form-control" name="email">
-                </div>
-                <div>
-                    <input type="number" name="lunghezza" id="lunghezza" min="1" required>
-                    <label for="inputPassword2" class="visually-hidden">Password</label>
-                    <input type="password" class="form-control mt-3" id="inputPassword2" placeholder="Password">
-                </div>
-
-                <button type="submit" class="btn btn-primary mt-3">Confirm identity</button>
-            </div>
-        </form>
-
+      <button class="btn btn-primary" type="submit">Accedi</button>
     </div>
+  </form>
+</div>
 </body>
 
 </html>
