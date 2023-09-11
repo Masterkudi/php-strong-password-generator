@@ -2,12 +2,12 @@
 
 session_start();
 
-$username = isset($_GET["email"]) ? $_GET["email"] : "";
+$email = isset($_GET["email"]) ? $_GET["email"] : "";
 $password = isset($_GET["password"]) ? $_GET["password"] : "";
 
 
 if ($password === "password") {
-    $_SESSION["username"] = $username;
+    $_SESSION["email"] = $email;
 }
 ?>
 
@@ -36,23 +36,22 @@ if ($password === "password") {
         <h1 class="p-3">Password Generator</h1>
 
         <?php
-        echo $_SESSION["username"] ?? "utente non loggato"
+        echo $_SESSION["email"] ?? "utente non loggato"
         ?>
 
         <form class="row p-3" method="GET" action="index.php">
 
-            <div class="col-auto">
+            <div class="col-auto p-0">
                 <div class="mb-3">
                     <label>Email</label>
-                    <input type="text" class="form-control" name="email">
+                    <input type="text" class="form-control mt-3" id="email" placeholder="email">
                 </div>
-                <div>
-                    <input type="number" name="lunghezza" id="lunghezza" min="1" required>
-                    <label for="inputPassword2" class="visually-hidden">Password</label>
-                    <input type="password" class="form-control mt-3" id="inputPassword2" placeholder="Password">
+                <div class="mb-3">
+                    <label>Password</label>
+                    <input type="password" class="form-control mt-3" id="password" placeholder="password">
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-3">Confirm identity</button>
+                <button type="submit" class="btn btn-primary mt-3">Login</button>
             </div>
         </form>
 
